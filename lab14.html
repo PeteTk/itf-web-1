@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <p>1</p>
+    </div>
+    <h1 id="username">Username</h1>
+    <div id="Profile" style="position: relative; height: 300px; width: 300px; background-image: url(https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg);background-position: center;border-radius: 100% ;" >
+        <div style="position: absolute; bottom: 20px; right: 15px; height: 50px; width: 50px; background-color: brown; border-radius: 50%; display: flex; "></div>
+    </div>
+    <label for="">Set username</label>
+    <input type="text" placeholder="Enter" id="input"><button onclick="setUsername()">Set</button>
+    <input type="text" placeholder="Enter" id="picture"><button onclick="setImage()">Set Img</button>
+    <script>
+        const username = document.getElementById("username");
+        const input = document.getElementById("input")
+        const Profile = document.getElementById("Profile")
+        const picture = document.getElementById("picture")
+        username.textContent = "Hello";
+
+        function setUsername(){
+            console.log(input.value);
+            username.textContent = input.value;
+            input.value="";
+        };
+        function setImage(){
+            Profile.style.backgroundImage = "url("+ picture.value + ")" ;
+            
+        } ;
+        function createElment(){
+            const a = document.createElement("p");
+            a.textContent = "Hi" ;
+            document.getElementById("parent").appendChild(a);
+            console.log(a.value)
+        }
+    </script>
+</body>
+</html>
