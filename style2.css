@@ -1,0 +1,47 @@
+.profile{
+    width: 183px;
+    height: 183px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX-2C4grgUcdZIcnM2WMBlz5HZIjdiiZsUoA&s);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border: 5px solid #89cf26;
+
+}
+.notify{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(241, 53, 53);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+}
+table{
+    border: 1px solid #5e5e5e;
+    text-align: center;
+    width: 20px;
+}
+body{
+    background-color: rgb(150, 194, 207);
+}
+
+
+.earn{
+    display: grid;
+    justify-content: center;
+}
+.clickme{
+    color: aliceblue;
+
+
+}
+.clickme:hover{
+    color: rgb(2, 103, 134);
+    font-size: 32px;
+}
