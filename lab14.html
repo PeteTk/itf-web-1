@@ -3,59 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PETE V.2</title>
+    <title>PETE</title>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <div class = "earn">
-        <a href="https://github.com/PeteTk"><h1 class="clickme" id ="username" >Username, hi</h1></a>
-        <div class="profile" id="profile">
-        <div class="notify">
-                <p>1</p>
+        <div class = "pete">
+            <a href="https://github.com/PeteTk"><h1 class="clickme" id ="username" >Username, hi</h1></a>
+            <div class="profile" id="profile">
+            <div class="notify">
+                    <p>1</p>
+                </div>
+            </div>
+        <label>set username</label><input id="input-name" type="text"><button onclick="setName()">SET</button>
+        <label>set image</label><input id="input-url" type="text"><button onclick="setImg()">SET</button>
+        <div class ="items">
+            <div class="box">
+                <input type="text" id="cell1">
+                <input type="text" id="cell2">
+                <button class="btn" onclick="addRow()">ADD</button>
+                <button class="btn" onclick="exportContacts()">Export</button>
             </div>
         </div>
-    <label>set username</label><input id="input-name" type="text"><button onclick="setName()">SET</button>
-    <label>set image</label><input id="input-url" type="text"><button onclick="setImg()">SET</button>
-
-    <input type="text" id="cell1">
-    <input type="text" id="cell2">
-    <button onclick="addRow()">ADD</button>
-    </div>
-
-    <div class="TB">
-    <table id ="table">
-        <tr>
-            <th>name</th>
-            <th>phone</th>
-        </tr>
-    </table>
-    </div>
+        <div class="items">
+            <table id="phoneTable">
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                </tr>
+            </table>
+        </div>
     <script>
         const name = document.getElementById("username");
         const inputName = document.getElementById("input-name");
         const profile = document.getElementById("profile");
         const inputUrl = document.getElementById("input-url");
-        const inputTable = document.getElementById("table");
+        const inputTable = document.getElementById("phoneTable");
 
-    
+     let count = 0;
+        var phonenumber = [["No.","Name","Phone"]];
         function setName(){
-            name.textContent = inputName.value + ", love dog";
+            name.textContent = inputName.value + ", Hi";
             inputName.value = "";
         }
         function setImg(){
             profile.style.backgroundImage = "url(" + inputUrl.value;
         }
         function addRow(){
+            count += 1;
             const row = document.createElement("tr");
-            const cell1 = document.createElement("td");
-            const cell2 = document.createElement("td");
-            cell1.textContent = document.getElementById("cell1").value ;
-            cell2.textContent = document.getElementById("cell2").value ;
-            row.appendChild(cell1);
-            row.appendChild(cell2);
-            inputTable.appendChild(row);
-        }
-    </script>
+            const cellNo = document.createElement("td");
+            const cellName = document.createElement("td");
+            const cellTel = document.createElement("td");
 
+            cellNo.textContent = count;
+            cellName.textContent = document.getElementById("cell1").value;
+            cellTel.textContent = document.getElementById("cell2").value;
+            row.appendChild(cellNo);
+            row.appendChild(cellName);
+            row.appendChild(cellTel);
+
+            const inputTable = document.getElementById("phoneTable");
+            inputTable.appendChild(row);
+
+            let arr = [];
+            arr.push(count);
+            arr.push(document.getElementById("cell1").value);
+            arr.push(document.getElementById("cell2").value);
+            phonenumber.push(arr);
+            console.log(phonenumber);
+    
+            document.getElementById("cell1").value = "";
+            document.getElementById("cell2").value = "";
+        }
+        function exportContacts() {
+            const csvContent = phonenumber.map(row => row.join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+
+            link.setAttribute("href", url);
+            link.setAttribute("download", "NameAndPhoneNum.csv");
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    </script>
 </body>
+<footer>
+    <h1>Trakarn Patjaika 67070054</h1>
+</footer>
 </html>

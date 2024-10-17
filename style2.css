@@ -32,7 +32,7 @@ body{
 }
 
 
-.earn{
+.pete{
     display: grid;
     justify-content: center;
 }
@@ -44,4 +44,57 @@ body{
 .clickme:hover{
     color: rgb(2, 103, 134);
     font-size: 32px;
+}
+.box{
+    display:flex;
+    justify-self: center;
+    column-gap: 10px ;
+
+}
+
+.btn {
+    background-color: #936943;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 5px;
+}
+.btn:hover {
+    background-color: #6b4f2c;
+}
+.contactlst{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #d8cfc4;
+}
+
+table tr{
+    padding: 10px;
+    text-align: center;
+}
+
+footer{
+    text-align : center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+    justify-content:center ;
 }
